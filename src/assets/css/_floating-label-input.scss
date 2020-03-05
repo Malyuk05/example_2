@@ -1,0 +1,52 @@
+@mixin float-label-container {
+  display: block;
+  position: relative;
+}
+
+@mixin float-label {
+  label, > span {
+    position: absolute;
+    user-select: none;
+    color: #666666;
+    left: 30px;
+    top: 10px;
+    cursor: text;
+    font-size: 18px;
+    opacity: 1;
+    transition: all .2s;
+    @content;
+  }
+}
+
+@mixin float-label-input {
+  &::placeholder {
+    opacity: 1;
+    transition: all .2s;
+  }
+  &:placeholder-shown:not(:focus)::placeholder {
+      opacity: 0;
+  }
+}
+
+@mixin float-label-scaled {
+  &:placeholder-shown:not(:focus) + * {
+      font-size: 18px;
+      opacity: .5;
+      @content;
+  }
+}
+
+@mixin floated-label {
+  outline: none;
+  border-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  left: 2em;
+  top: -0.25em;
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: text;
+  padding: 0 10px;
+  background: white;
+  font-size: 12px;
+  opacity: 1;
+  transition: all 0.2s;
+}
